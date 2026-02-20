@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bobhaul - Log in or sign up</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- ✅ ADDED: Styles for Entra ID injected elements -->
+  <style>
+    #api .heading, #api h1, #api h2 { display: none !important; }
+    #api input[type="email"], #api input[type="password"], #api input[type="text"], #api input[type="tel"] {
+      font-family: 'Lato', sans-serif !important; font-size: 16px !important; color: #222222 !important;
+      background: #f6f6f6 !important; border: none !important; border-radius: 56px !important;
+      height: 54px !important; padding: 0 16px !important; width: 100% !important;
+      box-sizing: border-box !important; outline: none !important; margin-bottom: 12px !important;
+    }
+    #api label { font-family: 'Lato', sans-serif !important; font-size: 12px !important; color: #757575 !important; }
+    #api button[type="submit"], #api #next, #api .sendCode {
+      font-family: 'Lato', sans-serif !important; font-weight: 600 !important; font-size: 18px !important;
+      color: #ffffff !important; background: #fc7630 !important; border: none !important;
+      border-radius: 50px !important; height: 54px !important; width: 100% !important;
+      cursor: pointer !important; margin-top: 12px !important; margin-bottom: 16px !important;
+    }
+    #api .social-provider-list button, #api .options li button {
+      font-family: 'Lato', sans-serif !important; font-weight: 500 !important; font-size: 16px !important;
+      color: #222222 !important; background: #f6f6f6 !important; border: none !important;
+      border-radius: 56px !important; height: 54px !important; width: 100% !important;
+      cursor: pointer !important; margin-bottom: 8px !important;
+    }
+    #api .error, #api .pageLevel, #api .itemLevel {
+      font-family: 'Lato', sans-serif !important; font-size: 13px !important; color: #e53935 !important;
+    }
+    #api a { font-family: 'Lato', sans-serif !important; color: #fc7630 !important; font-size: 14px !important; text-decoration: none !important; }
+    #api #verificationCode {
+      font-family: 'Lato', sans-serif !important; font-size: 24px !important; font-weight: 600 !important;
+      letter-spacing: 8px !important; text-align: center !important; background: #f6f6f6 !important;
+      border: none !important; border-radius: 56px !important; height: 54px !important;
+      width: 100% !important; box-sizing: border-box !important; outline: none !important; color: #222222 !important;
+    }
+  </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Lato', sans-serif;">
+
+  <div style="width: 375px; min-height: 812px; background: #ffffff; position: relative; overflow: hidden;">
+
+    <!-- Status Bar -->
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 21px 16px 19px 16px; width: 100%; box-sizing: border-box;">
+      <span style="font-family: -apple-system, 'SF Pro', 'Lato', sans-serif; font-weight: 590; font-size: 17px; line-height: 22px; color: #000000;">9:41</span>
+      <div style="display: flex; align-items: center; gap: 7px;">
+        <!-- Cellular -->
+        <svg width="19" height="12" viewBox="0 0 19 12" fill="none">
+          <rect x="0" y="7" width="3" height="5" rx="0.5" fill="#000"/>
+          <rect x="4" y="5" width="3" height="7" rx="0.5" fill="#000"/>
+          <rect x="8" y="3" width="3" height="9" rx="0.5" fill="#000"/>
+          <rect x="12" y="0" width="3" height="12" rx="0.5" fill="#000"/>
+        </svg>
+        <!-- WiFi -->
+        <svg width="17" height="12" viewBox="0 0 17 12" fill="none">
+          <path d="M8.5 11.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="#000"/>
+          <path d="M5.5 8.5a4.2 4.2 0 0 1 6 0" stroke="#000" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M3 6a7 7 0 0 1 11 0" stroke="#000" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M0.5 3.5a10.5 10.5 0 0 1 16 0" stroke="#000" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        <!-- Battery -->
+        <svg width="27" height="13" viewBox="0 0 27 13" fill="none">
+          <rect x="0.5" y="0.5" width="22" height="12" rx="2" stroke="#000" stroke-opacity="0.35"/>
+          <rect x="2" y="2" width="19" height="9" rx="1" fill="#000"/>
+          <path d="M24 4.5v4a2 2 0 0 0 0-4Z" fill="#000" fill-opacity="0.4"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Logo -->
+    <div style="padding: 0 16px; margin-top: 0px;">
+      <svg width="82" height="20" viewBox="0 0 82 20" fill="none">
+        <text x="0" y="16" font-family="Lato, sans-serif" font-weight="900" font-size="18" fill="#222">B</text>
+        <circle cx="19" cy="10" r="7" fill="none" stroke="#fc7630" stroke-width="2.5"/>
+        <text x="27" y="16" font-family="Lato, sans-serif" font-weight="900" font-size="18" fill="#222">bhaul</text>
+      </svg>
+    </div>
+
+    <!-- Title -->
+    <h1 style="font-family: 'Lato', sans-serif; font-weight: 700; font-size: 32px; line-height: 1; letter-spacing: 0; color: #222222; margin: 52px 16px 0 16px; padding: 0;">Log in or sign up</h1>
+
+    <!-- Main Content -->
+    <div style="padding: 24px 16px 0 16px;">
+
+      <!-- Country Dropdown -->
+      <div style="background: #f6f6f6; border-radius: 56px; height: 54px; display: flex; align-items: center; padding: 2px; box-sizing: border-box; margin-bottom: 12px;">
+        <!-- Flag circle -->
+        <div style="width: 50px; height: 50px; background: #ffffff; border-radius: 56px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="20" height="20" viewBox="0 0 20 20">
+            <defs>
+              <clipPath id="flagClip">
+                <circle cx="10" cy="10" r="10"/>
+              </clipPath>
+            </defs>
+            <g clip-path="url(#flagClip)">
+              <rect width="20" height="7" fill="#B22234"/>
+              <rect y="7" width="20" height="6" fill="#FFFFFF"/>
+              <rect y="13" width="20" height="7" fill="#B22234"/>
+              <rect width="8" height="10" fill="#3C3B6E"/>
+              <g fill="#FFFFFF" font-size="2">
+                <circle cx="2" cy="2" r="0.6"/><circle cx="4" cy="2" r="0.6"/><circle cx="6" cy="2" r="0.6"/>
+                <circle cx="3" cy="3.5" r="0.6"/><circle cx="5" cy="3.5" r="0.6"/>
+                <circle cx="2" cy="5" r="0.6"/><circle cx="4" cy="5" r="0.6"/><circle cx="6" cy="5" r="0.6"/>
+                <circle cx="3" cy="6.5" r="0.6"/><circle cx="5" cy="6.5" r="0.6"/>
+                <circle cx="2" cy="8" r="0.6"/><circle cx="4" cy="8" r="0.6"/><circle cx="6" cy="8" r="0.6"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <!-- Text -->
+        <div style="flex: 1; display: flex; flex-direction: column; gap: 4px; margin-left: 8px;">
+          <span style="font-family: 'Lato', sans-serif; font-weight: 400; font-size: 12px; line-height: 1; color: #757575;">Country/Region</span>
+          <span style="font-family: 'Lato', sans-serif; font-weight: 400; font-size: 16px; line-height: 1; color: #222222;">United States (+1)</span>
+        </div>
+        <!-- Arrow -->
+        <div style="width: 50px; height: 50px; background: #ffffff; border-radius: 56px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M5 7.5L10 12.5L15 7.5" stroke="#222222" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Phone Number Input -->
+      <div style="background: #f6f6f6; border-radius: 56px; height: 54px; display: flex; align-items: center; padding: 12px 2px 12px 16px; box-sizing: border-box; margin-bottom: 24px;">
+        <input type="tel" placeholder="Phone number" style="font-family: 'Lato', sans-serif; font-weight: 400; font-size: 16px; line-height: 1; color: #222222; background: transparent; border: none; outline: none; width: 100; flex: 1; padding-right: 16px;" />
+      </div>
+
+      <!-- Continue Button -->
+      <div style="background: #fc7630; border-radius: 50px; height: 54px; display: flex; align-items: center; justify-content: center; cursor: pointer; margin-bottom: 40px;">
+        <span style="font-family: 'Lato', sans-serif; font-weight: 600; font-size: 18px; line-height: 1; letter-spacing: -0.18px; color: #ffffff;">Continue</span>
+      </div>
+
+      <!-- Divider -->
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px;">
+        <div style="flex: 1; height: 1px; background: #e0e0e0;"></div>
+        <span style="font-family: 'Lato', sans-serif; font-weight: 500; font-size: 16px; line-height: 1; color: #757575; padding: 0 14px;">or</span>
+        <div style="flex: 1; height: 1px; background: #e0e0e0;"></div>
+      </div>
+
+      <!-- Continue with Email -->
+      <div style="background: #f6f6f6; border-radius: 56px; height: 54px; display: flex; align-items: center; padding: 2px; box-sizing: border-box; margin-bottom: 8px;">
+        <div style="width: 50px; height: 50px; background: #ffffff; border-radius: 56px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M14.167 17.083H5.833c-2.5 0-4.166-1.25-4.166-4.166V7.083c0-2.917 1.666-4.167 4.166-4.167h8.334c2.5 0 4.166 1.25 4.166 4.167v5.834c0 2.916-1.666 4.166-4.166 4.166Z" stroke="#222" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="m14.167 7.5-3.225 2.5c-.525.408-1.367.408-1.892 0L5.833 7.5" stroke="#222" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'Lato', sans-serif; font-weight: 500; font-size: 16px; line-height: 1; color: #222222;">Continue with email</span>
+        </div>
+      </div>
+
+      <!-- Continue with Google -->
+      <div style="background: #f6f6f6; border-radius: 56px; height: 54px; display: flex; align-items: center; padding: 2px; box-sizing: border-box; margin-bottom: 8px;">
+        <div style="width: 50px; height: 50px; background: #ffffff; border-radius: 56px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M18.171 8.368H17.5V8.333H10v3.334h4.709A5.002 5.002 0 0 1 5 10a5 5 0 0 1 5-5c1.275 0 2.434.48 3.317 1.266l2.357-2.357A8.295 8.295 0 0 0 10 1.667a8.333 8.333 0 1 0 8.171 6.701Z" fill="#FFC107"/>
+            <path d="M2.628 6.121l2.74 2.009A5.002 5.002 0 0 1 10 5c1.275 0 2.434.48 3.317 1.266l2.357-2.357A8.295 8.295 0 0 0 10 1.667 8.329 8.329 0 0 0 2.628 6.12Z" fill="#FF3D00"/>
+            <path d="M10 18.333a8.294 8.294 0 0 0 5.587-2.163l-2.579-2.183A4.963 4.963 0 0 1 10 15a5.002 5.002 0 0 1-4.701-3.316l-2.72 2.095A8.326 8.326 0 0 0 10 18.333Z" fill="#4CAF50"/>
+            <path d="M18.171 8.368H17.5V8.333H10v3.334h4.709a5.015 5.015 0 0 1-1.703 2.32l.001-.001 2.58 2.184c-.183.166 2.746-2.003 2.746-6.17 0-.558-.057-1.104-.162-1.632Z" fill="#1976D2"/>
+          </svg>
+        </div>
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'Lato', sans-serif; font-weight: 500; font-size: 16px; line-height: 1; color: #222222;">Continue with Google</span>
+        </div>
+      </div>
+
+      <!-- Continue with Apple -->
+      <div style="background: #f6f6f6; border-radius: 56px; height: 54px; display: flex; align-items: center; padding: 2px; box-sizing: border-box; margin-bottom: 8px;">
+        <div style="width: 50px; height: 50px; background: #ffffff; border-radius: 56px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="16" height="20" viewBox="0 0 16 20" fill="none">
+            <path d="M13.914 16.688c-.88.92-1.847.774-2.776.34-.976-.447-1.87-.468-2.902 0-1.29.6-1.968.426-2.742-.34C1.64 12.72 2.278 6.672 6.494 6.438c1.222.066 2.074.672 2.79.722.995-.202 1.95-.78 3.016-.704 1.282.098 2.242.584 2.876 1.462-2.636 1.578-2.012 5.048.258 6.018-.606 1.594-1.396 3.168-2.876 4.752h.002ZM9.168 6.382C9.04 4.22 10.81 2.42 12.83 2.25c.29 2.5-2.27 4.366-3.66 4.132Z" fill="#000"/>
+          </svg>
+        </div>
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'Lato', sans-serif; font-weight: 500; font-size: 16px; line-height: 1; color: #222222;">Continue with Apple</span>
+        </div>
+      </div>
+
+      <!-- Continue with Facebook -->
+      <div style="background: #f6f6f6; border-radius: 56px; height: 54px; display: flex; align-items: center; padding: 2px; box-sizing: border-box; margin-bottom: 8px;">
+        <div style="width: 50px; height: 50px; background: #ffffff; border-radius: 56px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987H5.898V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10Z" fill="#1877F2"/>
+            <path d="m13.893 12.89.443-2.89h-2.773V8.124c0-.79.388-1.563 1.63-1.563h1.26v-2.46s-1.144-.196-2.238-.196c-2.284 0-3.777 1.384-3.777 3.89V10H5.898v2.89h2.54v6.988a10.067 10.067 0 0 0 3.125 0V12.89h2.33Z" fill="#fff"/>
+          </svg>
+        </div>
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+          <span style="font-family: 'Lato', sans-serif; font-weight: 500; font-size: 16px; line-height: 1; color: #222222;">Continue with Facebook</span>
+        </div>
+      </div>
+
+      <!-- ✅ ADDED: Entra ID injection point -->
+      <!-- Microsoft injects form fields, buttons, errors, social logins, and verification code here -->
+      <!-- DO NOT remove this div -->
+      <div id="api"></div>
+
+    </div>
+
+    <!-- Home Indicator -->
+    <div style="position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); width: 144px; height: 5px; background: #000000; border-radius: 100px;"></div>
+
+  </div>
+
+</body>
+</html>
