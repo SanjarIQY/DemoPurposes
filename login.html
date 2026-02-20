@@ -7,40 +7,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- ✅ ADDED: Styles for Entra ID injected elements -->
-  <style>
-    #api .heading, #api h1, #api h2 { display: none !important; }
-    #api input[type="email"], #api input[type="password"], #api input[type="text"], #api input[type="tel"] {
-      font-family: 'Lato', sans-serif !important; font-size: 16px !important; color: #222222 !important;
-      background: #f6f6f6 !important; border: none !important; border-radius: 56px !important;
-      height: 54px !important; padding: 0 16px !important; width: 100% !important;
-      box-sizing: border-box !important; outline: none !important; margin-bottom: 12px !important;
-    }
-    #api label { font-family: 'Lato', sans-serif !important; font-size: 12px !important; color: #757575 !important; }
-    #api button[type="submit"], #api #next, #api .sendCode {
-      font-family: 'Lato', sans-serif !important; font-weight: 600 !important; font-size: 18px !important;
-      color: #ffffff !important; background: #fc7630 !important; border: none !important;
-      border-radius: 50px !important; height: 54px !important; width: 100% !important;
-      cursor: pointer !important; margin-top: 12px !important; margin-bottom: 16px !important;
-    }
-    #api .social-provider-list button, #api .options li button {
-      font-family: 'Lato', sans-serif !important; font-weight: 500 !important; font-size: 16px !important;
-      color: #222222 !important; background: #f6f6f6 !important; border: none !important;
-      border-radius: 56px !important; height: 54px !important; width: 100% !important;
-      cursor: pointer !important; margin-bottom: 8px !important;
-    }
-    #api .error, #api .pageLevel, #api .itemLevel {
-      font-family: 'Lato', sans-serif !important; font-size: 13px !important; color: #e53935 !important;
-    }
-    #api a { font-family: 'Lato', sans-serif !important; color: #fc7630 !important; font-size: 14px !important; text-decoration: none !important; }
-    #api #verificationCode {
-      font-family: 'Lato', sans-serif !important; font-size: 24px !important; font-weight: 600 !important;
-      letter-spacing: 8px !important; text-align: center !important; background: #f6f6f6 !important;
-      border: none !important; border-radius: 56px !important; height: 54px !important;
-      width: 100% !important; box-sizing: border-box !important; outline: none !important; color: #222222 !important;
-    }
-  </style>
 </head>
 <body style="margin: 0; padding: 0; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: 'Lato', sans-serif;">
 
@@ -195,11 +161,6 @@
           <span style="font-family: 'Lato', sans-serif; font-weight: 500; font-size: 16px; line-height: 1; color: #222222;">Continue with Facebook</span>
         </div>
       </div>
-
-      <!-- ✅ ADDED: Entra ID injection point -->
-      <!-- Microsoft injects form fields, buttons, errors, social logins, and verification code here -->
-      <!-- DO NOT remove this div -->
-      <div id="api"></div>
 
     </div>
 
